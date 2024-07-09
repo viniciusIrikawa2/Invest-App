@@ -1,8 +1,7 @@
 import React from 'react';
+import { today } from '../constants/constants';
 
 const CreatePage = () => {
-  const today = new Date().toISOString().split('T')[0];
-
   return (
     <main>
       <h1 className='mt-14 ml-10 text-in-white text-xl uppercase font-bold'> Create your investment </h1>
