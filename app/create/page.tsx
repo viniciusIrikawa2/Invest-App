@@ -46,7 +46,7 @@ const CreatePage = () => {
     <main>
       <h1 className='mt-14 ml-10 text-in-white text-xl uppercase font-bold'> Create your investment </h1>
       <div className='mt-10 h-full flex items-center justify-center'>
-        <form onSubmit={handleSubmit} className='w-1/5 flex flex-col'>
+        <form onSubmit={handleSubmit} className='md:w-1/5 w-full px-3 flex flex-col'>
           <label htmlFor="owner" className='text-gray-400 mb-1 text-xs'> Owner </label>
           <input className='text-black mb-5 rounded-sm p-2' 
                  onChange={handleInputChange} 
