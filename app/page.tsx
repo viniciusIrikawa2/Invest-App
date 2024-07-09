@@ -1,5 +1,5 @@
 export default function Home() {
   return (
-    <div className="text-white"> Home page </div>
+    <div className="text-in-white"> Home page </div>
   );
 }
