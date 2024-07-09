@@ -23,7 +23,7 @@ const NavBar = () => {
                 </li>
                 <li className='bg-green-400 p-3 rounded-md text-[#2f2f2f] font-bold border-b-4 border-white'>
                     <Link href='/create'>
-                        + Investment
+                        Invest Now!
                     </Link> 
                 </li>
             </ul>

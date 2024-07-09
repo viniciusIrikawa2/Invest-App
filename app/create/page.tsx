@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { today } from '../constants/constants';
 import { AppContext } from '../context/InvestmentContext';
 import { IInvestment } from '../@Types/Investment';
+import toast from 'react-hot-toast';
 
 const CreatePage = () => {
   const initialData = {
@@ -37,6 +38,7 @@ const CreatePage = () => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     setFormData(data);
+    toast.success('Success!');
   };
 
   return (
