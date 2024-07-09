@@ -6,9 +6,11 @@ const Details = () => {
     const params = useParams();
 
     return (
-        <div className='p-8 uppercase bg-[#2f2f2f]'>
-            <h1 className='text-white'> Details of <span className='text-green-400 font-bold'> {params.pair} </span> </h1>
-        </div>
+        <main>
+            <div className='p-8 uppercase bg-[#2f2f2f] border-l-4 border-green-400'>
+                <h1 className='text-[#e4e4e4]'> Details of <span className='text-green-400 font-bold'> {params.pair} </span> </h1>
+            </div>
+        </main>
     )
 }
 
