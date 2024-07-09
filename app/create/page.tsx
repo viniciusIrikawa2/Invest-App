@@ -4,6 +4,7 @@ import { today } from '../constants/constants';
 import { AppContext } from '../context/InvestmentContext';
 import { IInvestment } from '../@Types/Investment';
 import toast from 'react-hot-toast';
+import Link from 'next/link';
 
 const CreatePage = () => {
   const initialData = {
@@ -12,7 +13,7 @@ const CreatePage = () => {
     initialValue: 0
 }
 
-  const {setFormData} = useContext(AppContext);
+  const {formData, setFormData} = useContext(AppContext);
   
   const [data, setData] = useState<IInvestment>(initialData);
 
@@ -37,7 +38,7 @@ const CreatePage = () => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    setFormData(data);
+    setFormData([...formData, data])
     toast.success('Success!');
   };
 
@@ -74,6 +75,7 @@ const CreatePage = () => {
                  required/>
 
           <button type='submit' className='bg-[#4ade80] text-[#2f2f2f] font-bold py-3 rounded-md uppercase'> Invest </button>
+          <Link href='/wallet' className='border-2 border-[#4ade80] text-in-white text-sm font-bold py-3 mt-3 text-center rounded-md uppercase'> Go to wallet </Link>
         </form>
       </div>
     </main>
