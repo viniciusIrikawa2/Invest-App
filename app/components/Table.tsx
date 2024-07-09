@@ -1,8 +1,13 @@
+'use client';
 import React, { useContext } from 'react';
 import { AppContext } from '../context/InvestmentContext';
 import { IInvestment } from '../@Types/Investment';
 
-const Table = () => {
+interface TableProps {
+    setShowModal: (value: boolean) => void;
+}
+
+const Table = ({ setShowModal }: TableProps) => {
     const { formData } = useContext(AppContext);
     
     return (
@@ -25,7 +30,7 @@ const Table = () => {
                                 <td> {item.owner} </td>
                                 <td> {item.creationDate} </td>
                                 <td> ${item.initialValue.toFixed(2)} </td>
-                                <td> <button className='bg-gray-600 rounded-md px-2 py-2 text-xs'> view </button> </td>
+                                <td> <button className='bg-gray-600 rounded-sm px-2 py-1 text-xs' onClick={() => setShowModal(true)}> view </button> </td>
                             </tr>
                         ))}
                     </tbody>
