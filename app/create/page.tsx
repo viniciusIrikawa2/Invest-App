@@ -36,10 +36,14 @@ const CreatePage = () => {
     })
   };
 
+  const clearFields = () => setData(initialData);
+
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    setFormData([...formData, data])
+    setFormData([data, ...formData])
     toast.success('Success!');
+    
+    clearFields();
   };
 
   return (
@@ -51,7 +55,8 @@ const CreatePage = () => {
           <input className='text-black mb-5 rounded-sm p-2' 
                  onChange={handleInputChange} 
                  type="text" 
-                 id='owner' 
+                 id='owner'
+                 value={data.owner} 
                  name='owner' 
                  required/>
 
@@ -59,7 +64,8 @@ const CreatePage = () => {
           <input className='text-black mb-5 rounded-sm p-2' 
                  onChange={handleInputChange} 
                  type="date" 
-                 id='creation-date' 
+                 id='creation-date'
+                 value={data.creationDate} 
                  name='creationDate' 
                  max={today} 
                  required/>
