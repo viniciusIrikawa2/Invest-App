@@ -1,8 +1,26 @@
 import React from 'react';
 
 const CreatePage = () => {
+  const today = new Date().toISOString().split('T')[0];
+
   return (
-    <div className='text-in-white'>CreatePage</div>
+    <main>
+      <h1 className='mt-14 ml-10 text-in-white text-xl uppercase font-bold'> Create your investment </h1>
+      <div className='mt-10 h-full flex items-center justify-center'>
+        <form action="" className='w-1/5 flex flex-col'>
+          <label htmlFor="owner" className='text-gray-400 mb-1 text-xs'> Owner </label>
+          <input className='text-black mb-5 rounded-sm p-2' type="text" id='owner' required/>
+
+          <label htmlFor="creation-date" className='text-gray-400 mb-1 text-xs'> Creation date </label>
+          <input className='text-black mb-5 rounded-sm p-2' type="date" id='creation-date' max={today} required/>
+
+          <label htmlFor="initial-value" className='text-gray-400 mb-1 text-xs'> Initial value </label>
+          <input className='text-black mb-5 rounded-sm p-2' type="number" id='initial-value' required/>
+
+          <button className='bg-[#4ade80] text-[#2f2f2f] font-bold py-3 rounded-md uppercase'> Create </button>
+        </form>
+      </div>
+    </main>
   )
 }
 

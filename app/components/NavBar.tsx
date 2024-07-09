@@ -12,11 +12,6 @@ const NavBar = () => {
             </h1>
             <ul className='uppercase flex items-center justify-around text-in-white w-1/5 text-sm cursor-pointer'>
                 <li>
-                    <Link href='/create'>
-                        create a coin 
-                    </Link> 
-                </li>
-                <li>
                     <Link href=''>
                         our team 
                     </Link> 
@@ -24,6 +19,11 @@ const NavBar = () => {
                 <li>
                     <Link href=''>
                         blog 
+                    </Link> 
+                </li>
+                <li className='bg-green-400 p-3 rounded-md text-[#2f2f2f] font-bold border-b-4 border-white'>
+                    <Link href='/create'>
+                        + Investment
                     </Link> 
                 </li>
             </ul>
