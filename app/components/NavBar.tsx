@@ -10,7 +10,7 @@ const NavBar = () => {
                     <span className='text-green-400 text-2xl'>IN</span>vest<span className='text-green-400'>.</span>
                 </Link>
             </h1>
-            <ul className='uppercase flex items-center justify-around text-in-white w-1/5 text-sm cursor-pointer'>
+            <ul className='uppercase flex items-center justify-around text-in-white w-1/3 text-sm cursor-pointer'>
                 <li>
                     <Link href=''>
                         our team 
@@ -19,6 +19,11 @@ const NavBar = () => {
                 <li>
                     <Link href=''>
                         blog 
+                    </Link> 
+                </li>
+                <li>
+                    <Link href='/wallet'>
+                        my wallet 
                     </Link> 
                 </li>
                 <li className='bg-green-400 p-3 rounded-md text-[#2f2f2f] font-bold border-b-4 border-white'>
