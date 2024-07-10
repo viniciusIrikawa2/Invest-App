@@ -1,14 +1,11 @@
 'use client';
-import React, { useContext } from 'react';
-import { AppContext } from '../context/InvestmentContext';
+import React from 'react';
 
 interface TableProps {
     setShowModal: (value: boolean) => void;
 }
 
 const Modal = ({ setShowModal }: TableProps) => {
-    const { formData } = useContext(AppContext);
-
     return (
         <div className=' h-screen w-full fixed top-0 left-0'>
             <div className='border-4 border-in-white rounded-xl md:w-1/2 w-full h-[60vh] md:mx-0 mx-3 z-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>

@@ -7,7 +7,6 @@ export const calculateExpectedBalance = (initialValue: number, creationDate: str
     const monthsInvested = (currentDate.getFullYear() - startDate.getFullYear()) * 12 + (currentDate.getMonth() - startDate.getMonth());
 
     const balance = initialValue * Math.pow(1 + interestRate, monthsInvested);
-    parseFloat(balance.toFixed(2));
 
-    return balance;
+    return parseFloat(balance.toFixed(2));
 };
