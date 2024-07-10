@@ -1,3 +1,3 @@
 ## 🚀 Getting Started
-- Install dependencies and node_modules folder: ```npm install```
-- Run application: ```npm run dev```
+1- Install dependencies and node_modules folder: ```npm install```
+2- Run application: ```npm run dev```
