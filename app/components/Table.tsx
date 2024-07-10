@@ -1,16 +1,20 @@
 'use client';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/InvestmentContext';
 import { IInvestment } from '../@Types/Investment';
 import { normalizeDate } from '../helpers';
+import Modal from './Modal';
 
-interface TableProps {
-    setShowModal: (value: boolean) => void;
-}
-
-const Table = ({ setShowModal }: TableProps) => {
+const Table = () => {
     const { formData } = useContext(AppContext);
+    const [showModal, setShowModal] = useState<boolean>(false);
+    const [viewData, setViewData] = useState<IInvestment>();
     
+    const handleOnClick = (item: IInvestment) => {
+        setShowModal(true);
+        setViewData(item);
+    }
+
     return (
         <div className='mt-10 flex items-center justify-center px-3'>
             {formData.length === 0 ? (
@@ -31,10 +35,14 @@ const Table = ({ setShowModal }: TableProps) => {
                                 <td> {item.owner} </td>
                                 <td> {normalizeDate(item.creationDate)} </td>
                                 <td> ${item.initialValue.toFixed(2)} </td>
-                                <td> <button className='bg-gray-600 rounded-sm px-2 py-1 text-xs' onClick={() => setShowModal(true)}> view </button> </td>
+                                <td> <button className='bg-gray-600 rounded-sm px-2 py-1 text-xs' 
+                                             onClick={() => handleOnClick(item)}> view 
+                                    </button> 
+                                </td>
                             </tr>
                         ))}
                     </tbody>
+                    {showModal && <Modal setShowModal={setShowModal} viewData={viewData!}/>}
                 </table>
             )}
         </div>
