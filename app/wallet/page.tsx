@@ -23,7 +23,7 @@ const WalletPage = () => {
         <div>
             <h1 className='mt-14 ml-10 text-in-white text-xl uppercase font-bold'> My Wallet </h1>
             <Table setShowModal={setShowModal} />
-            {showModal && <Modal setShowModal={setShowModal} />}
+            {showModal && <Modal setShowModal={setShowModal} formData={formData}/>}
         </div>
     )
 }
