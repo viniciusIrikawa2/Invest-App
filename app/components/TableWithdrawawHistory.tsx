@@ -30,7 +30,7 @@ const TableWithdrawawHistory = () => {
                                 <td className='pr-4 md:pr-3'> ${item.initialValue.toFixed(2)} </td>
                                 <td className='pr-4 md:pr-3'> ${item.expectedBalance!.toFixed(2)} </td>
                                 <td className='pr-4 md:pr-3 text-red-400'> -{item.taxPercentage}% </td>
-                                <td className='pr-4 md:pr-3 text-green-400'> ${item.netValue!.toFixed(2)} </td>
+                                <td className='pr-4 md:pr-3 text-in-green'> ${item.netValue!.toFixed(2)} </td>
                             </tr>
                         ))}
                     </tbody>

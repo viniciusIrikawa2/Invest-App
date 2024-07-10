@@ -84,8 +84,8 @@ const CreatePage = () => {
                  pattern="\d*" 
                  required/>
 
-          <button type='submit' className='bg-[#4ade80] text-[#2f2f2f] font-bold py-3 rounded-md uppercase'> Invest </button>
-          <Link href='/wallet' className='border-2 border-[#4ade80] text-in-white text-sm font-bold py-3 mt-3 text-center rounded-md uppercase'> Go to wallet </Link>
+          <button type='submit' className='bg-in-green text-[#2f2f2f] font-bold py-3 rounded-md uppercase'> Invest </button>
+          <Link href='/wallet' className='border-2 border-in-green text-in-white text-sm font-bold py-3 mt-3 text-center rounded-md uppercase'> Go to wallet </Link>
         </form>
       </div>
     </main>
