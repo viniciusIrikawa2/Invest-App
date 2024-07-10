@@ -26,7 +26,7 @@ const Table = () => {
                             <th className='mx-3 text-xs text-start text-[#909090]'> Owner </th>
                             <th className='mx-3 text-xs text-start text-[#909090]'> Creation Date </th>
                             <th className='mx-3 text-xs text-start text-[#909090]'> Initial Value </th>
-                            <th className='mx-3 text-xs text-start text-[#909090]'> Action </th>
+                            <th className='mx-3 text-xs text-start text-[#909090]'> Actions </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,6 +37,9 @@ const Table = () => {
                                 <td> ${item.initialValue.toFixed(2)} </td>
                                 <td> <button className='bg-gray-600 rounded-sm px-2 py-1 text-xs' 
                                              onClick={() => handleOnClick(item)}> view 
+                                    </button> 
+                                    <button className='bg-gray-600 rounded-sm px-2 py-1 text-xs mx-1' 
+                                             onClick={() => handleOnClick(item)}> withdraw 
                                     </button> 
                                 </td>
                             </tr>
