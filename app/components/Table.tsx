@@ -7,7 +7,7 @@ import Modal from './Modal';
 import toast from 'react-hot-toast';
 
 const Table = () => {
-    const { formData, setTransactionHistory, transactionHistory } = useContext(AppContext);
+    const { formData, setFormData, setTransactionHistory, transactionHistory } = useContext(AppContext);
     const [showModal, setShowModal] = useState<boolean>(false);
     const [viewData, setViewData] = useState<IInvestment>();
     
@@ -16,11 +16,17 @@ const Table = () => {
         setViewData(item);
     }
 
-    const withDraw = (item: IInvestment) => {
+    const removeInvestmentFromWallet = (index: number) => {
+        const updatedFormData = formData.filter((_, idx: number) => idx !== index);
+        setFormData(updatedFormData);
+    };
+
+    const withDraw = (item: IInvestment, index: number) => {
         setTransactionHistory([
             ...transactionHistory,
             item
         ]);
+        removeInvestmentFromWallet(index);
         toast.success('Success!');
     }
 
@@ -48,7 +54,7 @@ const Table = () => {
                                              onClick={() => handleOnClick(item)}> view 
                                     </button> 
                                     <button className='bg-gray-600 rounded-sm px-2 py-1 text-xs mx-1' 
-                                             onClick={() => withDraw(item)}> withdraw 
+                                             onClick={() => withDraw(item, index)}> withdraw 
                                     </button> 
                                 </td>
                             </tr>
