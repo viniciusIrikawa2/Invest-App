@@ -6,7 +6,8 @@ import { calculateExpectedBalance } from '../functions/functions';
 import { IInvestment } from '../@Types/Investment';
 
 const WalletPage = () => {
-    const { formData, setFormData } = useContext(AppContext);
+    const { formData, setFormData, transactionHistory } = useContext(AppContext);
+// console.log(transactionHistory);
 
     useEffect(() => {
         const updatedFormData = formData.map((item: IInvestment) => ({

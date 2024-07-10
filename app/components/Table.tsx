@@ -4,9 +4,10 @@ import { AppContext } from '../context/InvestmentContext';
 import { IInvestment } from '../@Types/Investment';
 import { normalizeDate } from '../helpers';
 import Modal from './Modal';
+import toast from 'react-hot-toast';
 
 const Table = () => {
-    const { formData } = useContext(AppContext);
+    const { formData, setTransactionHistory, transactionHistory } = useContext(AppContext);
     const [showModal, setShowModal] = useState<boolean>(false);
     const [viewData, setViewData] = useState<IInvestment>();
     
@@ -15,8 +16,16 @@ const Table = () => {
         setViewData(item);
     }
 
+    const withDraw = (item: IInvestment) => {
+        setTransactionHistory([
+            ...transactionHistory,
+            item
+        ]);
+        toast.success('Success!');
+    }
+
     return (
-        <div className='mt-10 flex items-center justify-center px-3'>
+        <div className='mt-10 flex items-center justify-center px-1'>
             {formData.length === 0 ? (
                 <span className='text-gray-500 text-center'> No data here. </span>
             ) : (
@@ -39,7 +48,7 @@ const Table = () => {
                                              onClick={() => handleOnClick(item)}> view 
                                     </button> 
                                     <button className='bg-gray-600 rounded-sm px-2 py-1 text-xs mx-1' 
-                                             onClick={() => handleOnClick(item)}> withdraw 
+                                             onClick={() => withDraw(item)}> withdraw 
                                     </button> 
                                 </td>
                             </tr>
