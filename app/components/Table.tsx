@@ -33,8 +33,8 @@ const Table = () => {
         };
     
         setTransactionHistory([
-            ...transactionHistory,
-            updatedItem
+            updatedItem,
+            ...transactionHistory
         ]);
         removeInvestmentFromWallet(index);
         toast.success('Success!');
