@@ -40,10 +40,14 @@ const CreatePage = () => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    setFormData([data, ...formData])
-    toast.success('Success!');
-    
-    clearFields();
+
+    if(data.initialValue === 0){
+      toast.error('Please, enter an amount!');
+    }else{
+      setFormData([data, ...formData])
+      toast.success('Success!');
+      clearFields();
+    }
   };
 
   return (
