@@ -3,4 +3,6 @@ export interface IInvestment {
     creationDate: string,
     initialValue: number,
     expectedBalance?: number
+    netValue?: number;
+    taxPercentage?: number;
 }

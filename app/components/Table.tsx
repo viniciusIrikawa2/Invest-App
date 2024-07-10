@@ -5,6 +5,7 @@ import { IInvestment } from '../@Types/Investment';
 import { normalizeDate } from '../helpers';
 import Modal from './Modal';
 import toast from 'react-hot-toast';
+import { calculateTax } from '../functions/functions';
 
 const Table = () => {
     const { formData, setFormData, setTransactionHistory, transactionHistory } = useContext(AppContext);
@@ -22,9 +23,18 @@ const Table = () => {
     };
 
     const withDraw = (item: IInvestment, index: number) => {
+        const taxPercentage = calculateTax(item);
+        const netValue = item.expectedBalance! * (1 - taxPercentage / 100);
+
+        const updatedItem = {
+            ...item,
+            netValue: parseFloat(netValue.toFixed(2)), 
+            taxPercentage: parseFloat(taxPercentage.toFixed(2))
+        };
+    
         setTransactionHistory([
             ...transactionHistory,
-            item
+            updatedItem
         ]);
         removeInvestmentFromWallet(index);
         toast.success('Success!');

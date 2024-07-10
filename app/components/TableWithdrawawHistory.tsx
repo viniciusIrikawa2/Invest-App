@@ -17,7 +17,9 @@ const TableWithdrawawHistory = () => {
                             <th className='mx-3 text-xs text-start text-[#909090]'> Owner </th>
                             <th className='mx-3 text-xs text-start text-[#909090]'> Creation Date </th>
                             <th className='mx-3 text-xs text-start text-[#909090]'> Initial Value </th>
-                            <th className='mx-3 text-xs text-start text-[#909090]'> Final Balance </th>
+                            <th className='mx-3 text-xs text-start text-[#909090]'> Expected Balance </th>
+                            <th className='mx-3 text-xs text-start text-[#909090]'> Tax (%) </th>
+                            <th className='mx-3 text-xs text-start text-[#909090]'> Net Value </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,6 +29,8 @@ const TableWithdrawawHistory = () => {
                                 <td> {normalizeDate(item.creationDate)} </td>
                                 <td> ${item.initialValue.toFixed(2)} </td>
                                 <td> ${item.expectedBalance!.toFixed(2)} </td>
+                                <td className='text-red-400'> -{item.taxPercentage}% </td>
+                                <td className='text-green-400'> ${item.netValue!.toFixed(2)} </td>
                             </tr>
                         ))}
                     </tbody>
