@@ -38,10 +38,10 @@ const Table = () => {
                 <table className='text-in-white md:w-1/2 w-full '>
                     <thead>
                         <tr>
-                            <th className='mx-3 text-xs text-start text-[#909090]'> Owner </th>
-                            <th className='mx-3 text-xs text-start text-[#909090]'> Creation Date </th>
-                            <th className='mx-3 text-xs text-start text-[#909090]'> Initial Value </th>
-                            <th className='mx-3 text-xs text-start text-[#909090]'> Actions </th>
+                            <th className='mx-1 text-xs text-start text-[#909090]'> Owner </th>
+                            <th className='mx-1 text-xs text-start text-[#909090]'> Creation Date </th>
+                            <th className='mx-1 text-xs text-start text-[#909090]'> Initial Value </th>
+                            <th className='mx-1 text-xs text-start text-[#909090]'> Actions </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,9 +60,9 @@ const Table = () => {
                             </tr>
                         ))}
                     </tbody>
-                    {showModal && <Modal setShowModal={setShowModal} viewData={viewData!}/>}
                 </table>
             )}
+            {showModal && <Modal setShowModal={setShowModal} viewData={viewData!}/>}
         </div>
     )
 }
