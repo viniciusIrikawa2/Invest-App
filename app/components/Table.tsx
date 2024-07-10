@@ -2,6 +2,7 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/InvestmentContext';
 import { IInvestment } from '../@Types/Investment';
+import { normalizeDate } from '../helpers';
 
 interface TableProps {
     setShowModal: (value: boolean) => void;
@@ -28,7 +29,7 @@ const Table = ({ setShowModal }: TableProps) => {
                         {formData.map((item: IInvestment, index: number) => (
                             <tr key={index}>
                                 <td> {item.owner} </td>
-                                <td> {item.creationDate} </td>
+                                <td> {normalizeDate(item.creationDate)} </td>
                                 <td> ${item.initialValue.toFixed(2)} </td>
                                 <td> <button className='bg-gray-600 rounded-sm px-2 py-1 text-xs' onClick={() => setShowModal(true)}> view </button> </td>
                             </tr>

@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { IInvestment } from '../@Types/Investment';
+import { normalizeDate } from '../helpers';
 
 interface TableProps {
     setShowModal: (value: boolean) => void;
@@ -21,7 +22,7 @@ const Modal = ({ setShowModal, formData }: TableProps) => {
                         <span className='text-in-white'>{item.owner}</span>
 
                         <p className='text-gray-400 mb-1 text-xs mt-5'> Creation Date </p>
-                        <span className='text-in-white'>{item.creationDate}</span>
+                        <span className='text-in-white'>{normalizeDate(item.creationDate)}</span>
 
                         <div className='flex items-start'>
                             <div>
@@ -29,7 +30,7 @@ const Modal = ({ setShowModal, formData }: TableProps) => {
                                 <span className='text-in-white'>${item.initialValue.toFixed(2)}</span>
                             </div>
                             <div className='ml-10'>
-                                <p className='text-gray-400 mb-1 text-xs mt-5'> Return () </p>
+                                <p className='text-gray-400 mb-1 text-xs mt-5'> Return ({normalizeDate(item.creationDate) + ' - today'}) </p>
                                 <div className='text-in-white flex flex-row items-center'> ${item.expectedBalance}  
                                 </div> 
                                     <span className='text-xs text-[#4ade80] flex flex-row items-center'>
