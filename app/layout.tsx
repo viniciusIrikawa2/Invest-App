@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "./components/NavBar";
 import Provider from "./context/InvestmentContext";
 import { Toaster } from "react-hot-toast";
+import MysteryComponent from "./components/MysteryComponent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
         <Provider>
           {children}
         </Provider>
+        <MysteryComponent/>
       </body>
     </html>
   );
