@@ -2,6 +2,7 @@
 import React from 'react';
 import { IInvestment } from '../@Types/Investment';
 import { normalizeDate } from '../helpers';
+import { calculatePercentage } from '../functions/functions';
 
 interface TableProps {
     setShowModal: (value: boolean) => void;
@@ -42,7 +43,7 @@ const Modal = ({ setShowModal, formData }: TableProps) => {
                                             className="size-4 text-[#4ade80]">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                                         </svg>
-                                        25%
+                                        {calculatePercentage(item.initialValue, item.expectedBalance)}
                                     </span>
                             </div>
                         </div>

@@ -10,3 +10,8 @@ export const calculateExpectedBalance = (initialValue: number, creationDate: str
 
     return parseFloat(balance.toFixed(2));
 };
+
+export const calculatePercentage = (initialValue: number, expectedBalance: number | undefined) => {
+    const percentage = ((expectedBalance as number * 100) / initialValue) - 100;
+    return `${percentage.toFixed(2)}%`;
+}
