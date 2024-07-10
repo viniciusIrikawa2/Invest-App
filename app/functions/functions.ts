@@ -1,12 +1,14 @@
 import { interestRate } from "../constants/constants";
 
-export const calculateExpectedBalance = (initialValue: number, creationDate: string) => {
+export const calculateExpectedBalance = (initialValue: number, creationDate: string): number => {
     const currentDate = new Date();
     const startDate = new Date(creationDate);
 
-    const monthsInvested = (currentDate.getFullYear() - startDate.getFullYear()) * 12 + (currentDate.getMonth() - startDate.getMonth());
+    const daysInvested = Math.floor((currentDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
 
-    const balance = initialValue * Math.pow(1 + interestRate, monthsInvested);
+    const dailyRate = Math.pow(1 + interestRate, 1 / 30) - 1;
+
+    const balance = initialValue * Math.pow(1 + dailyRate, daysInvested);
 
     return parseFloat(balance.toFixed(2));
 };

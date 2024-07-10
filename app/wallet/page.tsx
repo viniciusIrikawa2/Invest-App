@@ -1,7 +1,6 @@
 'use client';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Table from '../components/Table';
-import Modal from '../components/Modal';
 import { AppContext } from '../context/InvestmentContext';
 import { calculateExpectedBalance } from '../functions/functions';
 import { IInvestment } from '../@Types/Investment';
@@ -22,6 +21,7 @@ const WalletPage = () => {
         <div>
             <h1 className='mt-14 ml-10 text-in-white text-xl uppercase font-bold'> My Wallet </h1>
             <Table/>
+            <h1 className='mt-14 ml-10 text-in-white text-xl uppercase font-bold'> Transaction History </h1>
         </div>
     )
 }
