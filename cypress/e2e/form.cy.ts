@@ -8,7 +8,7 @@ describe('Create Investment form', () => {
   });
 
   it('fill in the form with success', () => {
-    cy.fillInvestmentForm('John', '2020-02-02', '1000');
+    cy.fillForm('John', '2020-02-02', '1000');
     cy.contains('Success').should('exist');
   });
 
