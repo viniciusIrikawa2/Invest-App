@@ -61,10 +61,12 @@ const Table = () => {
                                 <td> {normalizeDate(item.creationDate)} </td>
                                 <td> ${item.initialValue.toFixed(2)} </td>
                                 <td> <button className='bg-gray-600 rounded-sm px-2 py-1 text-xs' 
-                                             onClick={() => handleOnClick(item)}> view 
+                                             onClick={() => handleOnClick(item)}
+                                             id='btn-view'> view 
                                     </button> 
                                     <button className='bg-gray-600 rounded-sm px-2 py-1 text-xs mx-1' 
-                                             onClick={() => withDraw(item, index)}> withdraw 
+                                             onClick={() => withDraw(item, index)}
+                                             id='btn-withdraw'> withdraw 
                                     </button> 
                                 </td>
                             </tr>

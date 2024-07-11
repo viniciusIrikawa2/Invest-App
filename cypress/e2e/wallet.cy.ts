@@ -22,4 +22,14 @@ describe('Tests for Wallet', () => {
         cy.get('#table-wallet').should('exist');
         cy.get('#msg-empty-wallet').should('not.exist');
     });
+
+    it('withdraw investment successfully', () => {
+        cy.get('#nav-invest-now').click();
+        cy.fillInvestmentForm('John', '2020-02-02', '1000');
+        cy.get('#btn-go-to-wallet').click();
+        cy.get('#btn-withdraw').click();
+        cy.get('#msg-empty-wallet').should('exist');
+        cy.get('#msg-empty-transaction').should('not.exist');
+        cy.get('#table-transaction').should('exist');
+    });
 });
