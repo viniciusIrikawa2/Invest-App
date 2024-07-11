@@ -11,7 +11,7 @@ const TableWithdrawawHistory = () => {
             {transactionHistory.length === 0 ? (
                 <span className='text-gray-500 text-center' id='msg-empty-transaction'> No transactions. </span>
             ) : (
-                <table className='text-in-white md:w-1/2 w-full '>
+                <table className='text-in-white md:w-1/2 w-full' id='table-withdrawal'>
                     <thead>
                         <tr>
                             <th className='mx-2 md:mx-3 text-xs text-start text-[#909090]'> Owner </th>

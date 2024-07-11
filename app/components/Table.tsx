@@ -45,7 +45,7 @@ const Table = () => {
             {formData.length === 0 ? (
                 <span className='text-gray-500 text-center' id='msg-empty-wallet'> No data here. </span>
             ) : (
-                <table className='text-in-white md:w-1/2 w-full '>
+                <table className='text-in-white md:w-1/2 w-full' id='table-wallet'>
                     <thead>
                         <tr>
                             <th className='mx-1 text-xs text-start text-[#909090]'> Owner </th>
