@@ -17,4 +17,4 @@
 ### Images
 ![home](https://github.com/viniciusIrikawa2/Invest-App/assets/175065462/50aa1361-87cc-4562-abae-e0956b8a83ea)
 ![wallet](https://github.com/viniciusIrikawa2/Invest-App/assets/175065462/caa9b202-132b-4f2b-b220-a01bf636e9de)
-![modal-details](https://github.com/viniciusIrikawa2/Invest-App/assets/175065462/59050078-e94d-49ad-83c3-bccc3d92eb1e)
+![modal](https://github.com/viniciusIrikawa2/Invest-App/assets/175065462/481aac55-b8b9-411f-9f35-b603844b45cf)
