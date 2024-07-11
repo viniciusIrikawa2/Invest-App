@@ -1,10 +1,19 @@
 'use client'
 import ApexCharts from 'apexcharts';
 import React, { useEffect } from 'react'
+import { IInvestment } from '../@Types/Investment';
+import { calculatePercentage } from '../functions/functions';
+import { normalizeDate } from '../helpers';
+import { today } from '../constants/constants';
 
-const Chart = () => {
-    const dates = ['01 Feb', '02 Feb', '03 Feb', '04 Feb', '05 Feb', '06 Feb', '07 Feb']
-    const incomes = [125,140];
+interface IChartProps  {
+    viewData: IInvestment;
+}
+
+const Chart = ({ viewData }: IChartProps) => {
+    const dates = [normalizeDate(viewData.creationDate , 2), normalizeDate(today , 2)]
+    const incomes = [viewData.initialValue.toFixed(2), viewData.expectedBalance?.toFixed(2)];
+
 
     useEffect(() => {
         const options = {
@@ -50,7 +59,7 @@ const Chart = () => {
                 sparkline: {
                     enabled: false
                 },
-                height: "100%",
+                height: "70%",
                 width: "100%",
                 type: "area",
                 fontFamily: "Inter, sans-serif",
@@ -80,13 +89,13 @@ const Chart = () => {
                 enabled: false,
             },
             stroke: {
-                width: 6,
+                width: 2,
             },
             legend: {
                 show: false
             },
             grid: {
-                show: false,
+                show: true,
             },
         }
         
@@ -101,7 +110,7 @@ const Chart = () => {
             <div className="flex justify-between p-4 md:p-6 pb-0 md:pb-0">
                 <div
                     className="flex items-center px-2.5 py-0.5 text-base font-semibold text-green-500 dark:text-green-500 text-center">
-                    23%
+                    {calculatePercentage(viewData.initialValue, viewData.expectedBalance)}
                     <svg className="w-3 h-3 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13V1m0 0L1 5m4-4 4 4" />
                     </svg>

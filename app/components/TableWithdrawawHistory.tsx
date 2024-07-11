@@ -29,7 +29,7 @@ const TableWithdrawawHistory = () => {
                             {transactionHistory.map((item: IInvestment, index: number) => (
                                 <tr key={index}>
                                     <td className='pr-4 md:pr-3'> {item.owner} </td>
-                                    <td className='pr-4 md:pr-3'> {normalizeDate(item.creationDate)} </td>
+                                    <td className='pr-4 md:pr-3'> {normalizeDate(item.creationDate, 1)} </td>
                                     <td className='pr-4 md:pr-3'> ${item.initialValue.toFixed(2)} </td>
                                     <td className='pr-4 md:pr-3'> ${item.expectedBalance!.toFixed(2)} </td>
                                     <td className='pr-4 md:pr-3 text-red-400'> -{item.taxPercentage}% </td>

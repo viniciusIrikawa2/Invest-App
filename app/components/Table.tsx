@@ -62,7 +62,7 @@ const Table = () => {
                             {formData.map((item: IInvestment, index: number) => (
                                 <tr key={index}>
                                     <td> {item.owner} </td>
-                                    <td> {normalizeDate(item.creationDate)} </td>
+                                    <td> {normalizeDate(item.creationDate, 1)} </td>
                                     <td> ${item.initialValue.toFixed(2)} </td>
                                     <td> <button className='bg-gray-600 rounded-sm px-2 py-1 text-xs' 
                                                 onClick={() => handleOnClick(item)}
