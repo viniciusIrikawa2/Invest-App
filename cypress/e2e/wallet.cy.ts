@@ -22,6 +22,21 @@ describe('Tests for Wallet', () => {
         cy.get('#msg-empty-wallet').should('not.exist');
     });
 
+    it('open modal correctly', () => {
+        cy.get('#nav-invest-now').click();
+        cy.fillFormAndNavigate('John', '2020-02-02', '1000');
+        cy.get('#btn-view').click()
+        cy.get('#modal-details').should('exist');
+    });
+
+    it('close modal correctly', () => {
+        cy.get('#nav-invest-now').click();
+        cy.fillFormAndNavigate('John', '2020-02-02', '1000');
+        cy.get('#btn-view').click();
+        cy.get('#btn-close-modal').click();
+        cy.get('#modal-details').should('not.exist');
+    });
+
     it('withdraw investment successfully', () => {
         cy.get('#nav-invest-now').click();
         cy.fillFormAndNavigate('John', '2020-02-02', '1000');
