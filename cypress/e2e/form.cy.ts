@@ -8,15 +8,10 @@ describe('Create Investment form', () => {
   });
 
   it('fill in the form with success', () => {
-    cy.get('#owner').type('Lorem ipsum');
-    cy.get('#creation-date').type('2024-07-10');
-    cy.get('#initial-value').type('1000');
-
-    cy.get('form').submit();
-
+    cy.fillInvestmentForm('Joh', '2020-02-02', '1000');
     cy.contains('Success').should('exist');
   });
-  
+
   it('invalid form submission', () => {
     cy.get('#btn-form-invest').click();
     cy.contains('Success').should('not.exist');
