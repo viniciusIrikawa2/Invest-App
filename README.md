@@ -5,6 +5,8 @@
 
 3- Run application: ```npm run dev```
 
+4- Run Cypress: ```npx cypress open```
+
 ### Dependencies used in the project
 - Cypress (E2E Testings)
 - React Hot Toast (Notifications)
