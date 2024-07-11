@@ -12,12 +12,12 @@ const NavBar = () => {
             </h1>
             <ul className='uppercase flex items-center justify-around text-in-white md:w-1/5 w-full text-sm cursor-pointer'>
                 <li>
-                    <Link href='/wallet'>
+                    <Link href='/wallet' id='nav-my-wallet'>
                         my wallet 
                     </Link> 
                 </li>
                 <li className='bg-in-green p-3 rounded-md text-[#2f2f2f] font-bold border-b-4 border-white'>
-                    <Link href='/create'>
+                    <Link href='/create' id='nav-invest-now'>
                         Invest Now!
                     </Link> 
                 </li>

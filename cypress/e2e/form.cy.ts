@@ -3,6 +3,10 @@ describe('Create Investment form', () => {
     cy.visit('http://localhost:3000/create');
   });
 
+  it('visit the correct url', () => {
+    cy.url().should('be.equal', 'http://localhost:3000/create')
+  });
+
   it('fill in the form with success', () => {
     cy.get('#owner').type('Lorem ipsum');
     cy.get('#creation-date').type('2024-07-10');

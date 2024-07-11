@@ -43,7 +43,7 @@ const Table = () => {
     return (
         <div className='mt-10 flex items-center justify-center px-1'>
             {formData.length === 0 ? (
-                <span className='text-gray-500 text-center'> No data here. </span>
+                <span className='text-gray-500 text-center' id='msg-empty-wallet'> No data here. </span>
             ) : (
                 <table className='text-in-white md:w-1/2 w-full '>
                     <thead>

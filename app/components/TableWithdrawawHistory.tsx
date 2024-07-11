@@ -9,7 +9,7 @@ const TableWithdrawawHistory = () => {
     return (
         <div className='mt-10 md:flex md:items-center md:justify-center md:overflow-auto overflow-x-scroll px-1' id='table-transaction'>
             {transactionHistory.length === 0 ? (
-                <span className='text-gray-500 text-center'> No transactions. </span>
+                <span className='text-gray-500 text-center' id='msg-empty-transaction'> No transactions. </span>
             ) : (
                 <table className='text-in-white md:w-1/2 w-full '>
                     <thead>
