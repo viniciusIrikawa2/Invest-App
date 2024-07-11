@@ -46,7 +46,7 @@ const CreatePage = () => {
     }else{
       setFormData([data, ...formData])
       toast.success('Success!');
-      clearFields();
+      // clearFields();
     }
   };
 
