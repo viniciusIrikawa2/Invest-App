@@ -6,6 +6,7 @@ import { normalizeDate } from '../helpers';
 import Modal from './Modal';
 import toast from 'react-hot-toast';
 import { calculateTax } from '../functions/functions';
+import Link from 'next/link';
 
 const Table = () => {
     const { formData, setFormData, setTransactionHistory, transactionHistory } = useContext(AppContext);
@@ -43,7 +44,9 @@ const Table = () => {
     return (
         <div className='mt-10 flex items-center justify-center px-1'>
             {formData.length === 0 ? (
-                <span className='text-gray-500 text-center' id='msg-empty-wallet'> No data here. </span>
+                <div>
+                    <span className='text-gray-500 text-center' id='msg-empty-wallet'> No data. <Link className='text-gray-500 text-center underline' href='/create'> Invest here </Link>  </span>
+              </div>
             ) : (
                 <table className='text-in-white md:w-1/2 w-full' id='table-wallet'>
                     <thead>
