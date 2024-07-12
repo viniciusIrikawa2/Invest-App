@@ -2,7 +2,7 @@
 import ApexCharts from 'apexcharts';
 import React, { useEffect } from 'react'
 import { IInvestment } from '../@Types/Investment';
-import { calculatePercentage } from '../functions/functions';
+import { calculatePercentage, chartOptions } from '../functions/functions';
 import { normalizeDate } from '../helpers';
 import { today } from '../constants/constants';
 
@@ -11,94 +11,11 @@ interface IChartProps  {
 }
 
 const Chart = ({ viewData }: IChartProps) => {
-    const dates = [normalizeDate(viewData.creationDate , 2), normalizeDate(today , 2)]
+    const dates = [normalizeDate(viewData.creationDate , 2), normalizeDate(today , 2)];
     const incomes = [viewData.initialValue.toFixed(2), viewData.expectedBalance?.toFixed(2)];
 
-
     useEffect(() => {
-        const options = {
-            xaxis: {
-                show: true,
-                categories: dates,
-                labels: {
-                    show: true,
-                    style: {
-                        fontFamily: "Inter, sans-serif",
-                        cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
-                    }
-                },
-                axisBorder: {
-                    show: false,
-                },
-                axisTicks: {
-                    show: false,
-                },
-            },
-            yaxis: {
-                show: true,
-                labels: {
-                    show: true,
-                    style: {
-                        fontFamily: "Inter, sans-serif",
-                        cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
-                    },
-                    formatter: function (value: any) {
-                        return '$' + value;
-                    }
-                }
-            },
-            series: [
-                {
-                    name: "Income",
-                    data: incomes,
-                    color: "#4ade80",
-                },
-               
-            ],
-            chart: {
-                sparkline: {
-                    enabled: false
-                },
-                height: "70%",
-                width: "100%",
-                type: "area",
-                fontFamily: "Inter, sans-serif",
-                dropShadow: {
-                    enabled: false,
-                },
-                toolbar: {
-                    show: false,
-                },
-            },
-            tooltip: {
-                enabled: false,
-                x: {
-                    show: false,
-                },
-            },
-            fill: {
-                type: "gradient",
-                gradient: {
-                    opacityFrom: 0.55,
-                    opacityTo: 0,
-                    shade: "#1C64F2",
-                    gradientToColors: ["#1C64F2"],
-                },
-            },
-            dataLabels: {
-                enabled: false,
-            },
-            stroke: {
-                width: 2,
-            },
-            legend: {
-                show: false
-            },
-            grid: {
-                show: true,
-            },
-        }
-        
+        const options = chartOptions(dates, incomes);
         if (document.getElementById("labels-chart") && typeof ApexCharts !== 'undefined') {
             const chart = new ApexCharts(document.getElementById("labels-chart"), options);
             chart.render();

@@ -1,5 +1,6 @@
 import { IInvestment } from "../@Types/Investment";
 import { interestRate } from "../constants/constants";
+import ApexCharts from 'apexcharts';
 
 export const calculateExpectedBalance = (initialValue: number, creationDate: string): number => {
     const currentDate = new Date();
@@ -31,4 +32,91 @@ export const calculateTax = (item: IInvestment): number => {
     } else {
         return 15;
     }
+};
+
+export const chartOptions = (dates: any, incomes: any) => {
+    const options = {
+        xaxis: {
+            show: true,
+            categories: dates,
+            labels: {
+                show: true,
+                style: {
+                    fontFamily: "Inter, sans-serif",
+                    cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
+                }
+            },
+            axisBorder: {
+                show: false,
+            },
+            axisTicks: {
+                show: false,
+            },
+        },
+        yaxis: {
+            show: true,
+            labels: {
+                show: true,
+                style: {
+                    fontFamily: "Inter, sans-serif",
+                    cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
+                },
+                formatter: function (value: any) {
+                    return '$' + value;
+                }
+            }
+        },
+        series: [
+            {
+                name: "Income",
+                data: incomes,
+                color: "#4ade80",
+            },
+           
+        ],
+        chart: {
+            sparkline: {
+                enabled: false
+            },
+            height: "70%",
+            width: "100%",
+            type: "area",
+            fontFamily: "Inter, sans-serif",
+            dropShadow: {
+                enabled: false,
+            },
+            toolbar: {
+                show: false,
+            },
+        },
+        tooltip: {
+            enabled: false,
+            x: {
+                show: false,
+            },
+        },
+        fill: {
+            type: "gradient",
+            gradient: {
+                opacityFrom: 0.55,
+                opacityTo: 0,
+                shade: "#1C64F2",
+                gradientToColors: ["#1C64F2"],
+            },
+        },
+        dataLabels: {
+            enabled: false,
+        },
+        stroke: {
+            width: 2,
+        },
+        legend: {
+            show: false
+        },
+        grid: {
+            show: true,
+        },
+    }
+
+    return options;
 };
