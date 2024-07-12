@@ -15,7 +15,7 @@ export const calculateExpectedBalance = (initialValue: number, creationDate: str
 };
 
 export const calculatePercentage = (initialValue: number, expectedBalance: number | undefined) => {
-    const percentage = ((expectedBalance as number * 100) / initialValue) - 100;
+    const percentage = ((expectedBalance as number - initialValue) / initialValue) * 100;
     return `${percentage.toFixed(2)}%`;
 }
 
